@@ -23,7 +23,7 @@ public class ButtonDesign extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-    }
+    } 
 
 
     @Override
