@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 import android.os.Build;
 
 public class ButtonDesign extends ActionBarActivity {
@@ -23,7 +25,18 @@ public class ButtonDesign extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-    } 
+        
+        Button runcloud = (Button)this.findViewById(R.id.button2);
+        
+        runcloud.setOnClickListener(new Button.OnClickListener() {
+         @Override
+         public void onClick(View arg0) { 
+        	 Toast.makeText(getApplicationContext(), "Pressed glass button",Toast.LENGTH_SHORT).show();
+         }
+         });
+        
+        
+    }  
 
 
     @Override
