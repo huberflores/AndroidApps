@@ -6,7 +6,7 @@ Floating menu
 
 
 
-References:
+References
 ========
 
 [Base code](https://github.com/leonardosalles/shipp-sliding-menu/)
