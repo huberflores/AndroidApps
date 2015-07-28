@@ -13,6 +13,13 @@ public class LocalService extends Service {
 	Thread Runningthread = null;
     private final Random mGenerator = new Random();
 
+    
+    
+    /**
+     *  START_STICKY – Service will be restarted if it gets terminated whether any requests are pending or not. 
+     *  START_NOT_STICKY – Service is only restarted for pending requests. 
+     *  START_REDELIVER_INTENT – Similar to START_STICKY and will receive both pending and started requests. 
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "onStartCommand executed");

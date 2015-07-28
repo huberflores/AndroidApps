@@ -56,12 +56,17 @@ public class StartStopMain extends ActionBarActivity {
 	}
 
 	
+	/**
+	 * Intent – Data to be used by the Service for any sort of asynchronous execution.
+	 * Flag – Representing the history of this start request. We will discuss this in a bit.
+	 * Start ID – A unique ID provided by the runtime for this start request. 
+	 * If the process is terminated and then at a later stage restarted then onStartCommand() will be called with the same start ID.
+	 */
 	 private void Run() {
 	        startService(new Intent(this, LocalService.class));
 	        /*Intent intent = new Intent(this, LocalService.class);
 	        intent.putExtra("key", "val");
 	        startService(intent);*/
-	        
 	 }
 	 
 	 public class MessageReceiver extends BroadcastReceiver {
