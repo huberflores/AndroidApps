@@ -2,7 +2,6 @@ package ee.ut.cs.dev.aidl.example;
 
 import java.util.List;
 
-import android.support.v7.app.ActionBarActivity;
 import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -11,8 +10,6 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 
 
@@ -38,6 +35,9 @@ public class AIDLExampleMain extends ListActivity {
 				Context.BIND_AUTO_CREATE);
 	}
 
+    /**
+     * Running service is binded to an activity using this routine
+     */
 	private ServiceConnection conn = new ServiceConnection() {
 
 		private IKeywordService keywordService;

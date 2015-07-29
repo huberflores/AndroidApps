@@ -21,7 +21,7 @@ public class KeywordData implements Parcelable {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		// TODO Auto-generated method stub
@@ -50,7 +50,10 @@ public class KeywordData implements Parcelable {
 	public String toString() {
 		return "Keyword [value=" + value + ", key=" + key + "]";
 	}
-	
+
+	/**
+	 * Data is serialized using Parcelable
+	 */
 	public static final Parcelable.Creator<KeywordData> CREATOR = new Parcelable.Creator<KeywordData>() {
 
 		@Override

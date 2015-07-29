@@ -20,6 +20,9 @@ public class KeywordService extends Service {
 		list.add(new KeywordData("Tallinn", 3));
 	}
 	
+	/**
+	 * Binder of the service. AIDL interface is override here.
+	 */
 	@Override
 	public IBinder onBind(Intent intent) {
 		return new IKeywordService.Stub() {
