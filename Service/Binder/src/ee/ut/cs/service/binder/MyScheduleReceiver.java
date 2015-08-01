@@ -7,8 +7,11 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class MyScheduleReceiver extends BroadcastReceiver {
+	
+	public static final String CUSTOM_INTENT = "ee.ut.cs.intent.action.ACTIVE";
 
 	// Restart service every 30 seconds
 	private static final long REPEAT_TIME = 1000 * 30;
@@ -17,6 +20,9 @@ public class MyScheduleReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		AlarmManager service = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
+		
+		/*The service starts in the onStartCommand method*/
+		
 		Intent i = new Intent(context, MyStartServiceReceiver.class);
 		PendingIntent pending = PendingIntent.getBroadcast(context, 0, i,
 				PendingIntent.FLAG_CANCEL_CURRENT);
@@ -28,6 +34,9 @@ public class MyScheduleReceiver extends BroadcastReceiver {
 		// InexactRepeating allows Android to optimize the energy consumption
 		service.setInexactRepeating(AlarmManager.RTC_WAKEUP,
 				cal.getTimeInMillis(), REPEAT_TIME, pending);
+		
+		Toast.makeText(context, "Service is schedule to restart each: " + REPEAT_TIME/1000 + " seconds",
+		        Toast.LENGTH_LONG).show();
 
 		// service.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
 		// REPEAT_TIME, pending);
