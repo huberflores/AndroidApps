@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 
 public class KeywordService extends Service{
@@ -22,6 +23,9 @@ public class KeywordService extends Service{
 	@Override
     public void onCreate() {
         Log.d(TAG, "onCreate called"); 
+        
+        Toast.makeText(getBaseContext(), "onCreate service",
+		        Toast.LENGTH_LONG).show();
     }
 	
 	
@@ -35,9 +39,12 @@ public class KeywordService extends Service{
 	@Override  
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		
-		//android.os.Debug.waitForDebugger();
+		/*android.os.Debug.waitForDebugger();
+		Log.d(TAG, "onStartCommand");*/
 		
-		/*Log.d(TAG, "onStartCommand");*/
+		Toast.makeText(getBaseContext(), "onStartCommand service",
+		        Toast.LENGTH_LONG).show();
+		
 		
 		return Service.START_NOT_STICKY;
 		

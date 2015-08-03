@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class MyScheduleReceiver extends BroadcastReceiver {
 	
+	public final static String TAG = MyScheduleReceiver.class.getCanonicalName();
+	
 	public static final String CUSTOM_INTENT = "ee.ut.cs.intent.action.ACTIVE";
 
 	// Restart service every 30 seconds
@@ -22,7 +24,6 @@ public class MyScheduleReceiver extends BroadcastReceiver {
 				.getSystemService(Context.ALARM_SERVICE);
 		
 		/*The service starts in the onStartCommand method*/
-		
 		Intent i = new Intent(context, MyStartServiceReceiver.class);
 		PendingIntent pending = PendingIntent.getBroadcast(context, 0, i,
 				PendingIntent.FLAG_CANCEL_CURRENT);
@@ -37,6 +38,8 @@ public class MyScheduleReceiver extends BroadcastReceiver {
 		
 		Toast.makeText(context, "Service is schedule to restart each: " + REPEAT_TIME/1000 + " seconds",
 		        Toast.LENGTH_LONG).show();
+		
+		System.out.println("MyScheduleReceiver called...");
 
 		// service.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
 		// REPEAT_TIME, pending);
