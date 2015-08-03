@@ -21,6 +21,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 
+/**
+ * 
+ * @author Huber Flores
+ *
+ */
+
 public class ServiceMain extends ListActivity {
 	
 	public final static String TAG = ServiceMain.class.getCanonicalName();
