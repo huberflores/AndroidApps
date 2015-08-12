@@ -2,6 +2,8 @@ package ee.ut.cs.bluetooth.client;
 
 import java.io.IOException;
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -51,10 +53,22 @@ public class ConnectThread extends Thread {
  
         // Do work to manage the connection (in a separate thread)
         //manageConnectedSocket(mmSocket);
+        //here mmSocket is used to obtain the Input and Output Streams
         Log.d(TAG, "D2D connected client");
-        new Thread(
+        
+        /*new Thread(
                 new ManageThread(mmSocket)
-            ).start();
+            ).start();*/
+        
+        
+        
+        ExecutorService executor = Executors.newCachedThreadPool();
+		Runnable c1 = new ManageThread(mmSocket);
+		executor.execute(c1);
+		
+        
+        
+        
         
     }
  

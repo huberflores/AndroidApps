@@ -9,7 +9,7 @@ import android.bluetooth.BluetoothSocket;
 import android.util.Log;
 
 
-public class ConnectionListener extends Thread { 
+public class ConnectionListener extends Thread {
 	protected boolean isStopped = false;
 	
 	private static final String NAME = "test";
