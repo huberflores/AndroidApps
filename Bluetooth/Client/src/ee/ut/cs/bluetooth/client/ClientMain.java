@@ -16,13 +16,13 @@ import android.widget.Toast;
 
 
 public class ClientMain extends Activity {
-	
+	 
 	private final String TAG = ClientMain.class.getSimpleName();
 	
 	private List<BluetoothDevice> mArrayAdapter = new ArrayList<BluetoothDevice>();
 	
-	BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-	private final BluetoothDevice mmDevice = null;
+	BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); 
+	private final BluetoothDevice mmDevice = null; 
 	
 
     @Override
@@ -34,7 +34,6 @@ public class ClientMain extends Activity {
     	    // Device does not support Bluetooth
         	Log.d(TAG, "Bluetooth not supported");
         	return;
-        
     	}
       
         historyDevices();
@@ -64,7 +63,7 @@ public class ClientMain extends Activity {
     }
     
     
-    public void onClick(View view) {
+    public void onClick(View view) {  
 		
 		switch (view.getId()) {
 			case R.id.button1:
@@ -72,12 +71,31 @@ public class ClientMain extends Activity {
 		            new Thread(
 		                    new ConnectThread(mArrayAdapter.get(0))
 		                ).start();
-		        }
+		        
+		            
+		            //Multiple requests can be send to a single device
+		            //No more than one socket instance can be created to target a single device
+		            //if requests are in sequence, one single socket should be open and close until the last request is done (in other words, one socket to manage all the requests)
+		            //if requests are not in sequence, then a new socket device should be created to handle each request, one after the other
+		            //in this context, once a request is finished, then the socket is close, and just then a new one can be created.
+		            
+		            /*try {
+						Thread.sleep(10000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		            
+		            new Thread(
+		                    new ConnectThread(mArrayAdapter.get(0))
+		                ).start();
+		            */
+		         }
 				
 				Toast.makeText(ClientMain.this, "Connected", Toast.LENGTH_SHORT)
 				.show();
 				
-				break;
+				break; 
 		
 					
 		}

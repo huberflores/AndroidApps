@@ -56,19 +56,19 @@ public class ConnectThread extends Thread {
         //here mmSocket is used to obtain the Input and Output Streams
         Log.d(TAG, "D2D connected client");
         
+        
+        
         /*new Thread(
                 new ManageThread(mmSocket)
-            ).start();*/
+            ).start();*/ 
         
-        
-        
+       
+          
+        //same as above
         ExecutorService executor = Executors.newCachedThreadPool();
-		Runnable c1 = new ManageThread(mmSocket);
+		Runnable c1 = new ManageThread(mmSocket); 
 		executor.execute(c1);
 		
-        
-        
-        
         
     }
  

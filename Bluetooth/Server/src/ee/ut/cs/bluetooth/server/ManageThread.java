@@ -51,13 +51,14 @@ public class ManageThread extends Thread {
                 	Log.d(TAG, "resultado: " + s);
                 
                 }catch(Exception e){
-                	Log.d(TAG, "Exception");
+                	Log.d(TAG, "String exception");
                 }
                 
                 mmInStream.close();
             
                 
             } catch (IOException e) {
+            	Log.d(TAG, "Finish wih exception: "+ e.getCause());
                 break;
             }
         }

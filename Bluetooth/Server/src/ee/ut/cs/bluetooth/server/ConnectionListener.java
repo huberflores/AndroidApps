@@ -12,9 +12,9 @@ import android.util.Log;
 public class ConnectionListener extends Thread {
 	protected boolean isStopped = false;
 	
-	private static final String NAME = "test";
+	private static final String NAME = "test"; 
 
-	private static final UUID MY_UUID = UUID.fromString("00000000-15bd-3817-75fc-32dc6e939714");
+	private static final UUID MY_UUID = UUID.fromString("00000000-15bd-3817-75fc-32dc6e939714"); 
 
 	private final String TAG = ConnectionListener.class.getSimpleName();
 	
@@ -43,17 +43,17 @@ public class ConnectionListener extends Thread {
                 socket = mmServerSocket.accept();
             } catch (IOException e) {
             	
-            	Log.d(TAG,"Server Stopped.") ;
+            	Log.d(TAG,"Server Stopped.");
             	
                 break;
             }
             // If a connection was accepted
             if (socket != null) {
-                // Do work to manage the connection (in a separate thread)
+                // Do work to manage the connection (in a separate thread) 
                 Log.d(TAG, "D2D connected server");
-                
+               
                 new Thread(
-                        new ManageThread(socket)
+                        new ManageThread(socket) 
                     ).start();
                 
                 
@@ -65,7 +65,7 @@ public class ConnectionListener extends Thread {
     					mmServerSocket.close();
     				} catch (IOException e) {
     					// TODO Auto-generated catch block
-    					e.printStackTrace();
+    					e.printStackTrace(); 
     				}
                     break;
                 }
